@@ -77,27 +77,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resultParcial = (TextView) findViewById(R.id.resultParcial);
     }
     public void igual() {
-        firstNum=true;
+        firstNum=false;
         switch (selectOp) {
             /*Division*/
             case 1:
-                num1 = num1 / num2;
-                resultParcial.setText(num1.toString());
+                numAux = num1 / num2;
+                resultParcial.setText(numAux.toString());
                 break;
             /*Multiplicacion*/
             case 2:
-                num1 = num1 * num2;
-                resultParcial.setText(num1.toString());
+                numAux = num1 * num2;
+                resultParcial.setText(numAux.toString());
                 break;
             /*Resta*/
             case 3:
-                num1 = num1 - num2;
-                resultParcial.setText(num1.toString());
+                numAux = num1 - num2;
+                resultParcial.setText(numAux.toString());
                 break;
             /*Suma*/
             case 4:
-                num1 = num1 + num2;
-                resultParcial.setText(num1.toString());
+                numAux = num1 + num2;
+                resultParcial.setText(numAux.toString());
                 break;
 
         }
@@ -105,19 +105,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-           /* case R.id.buttonDot:
+            case R.id.buttonDot:
                 op = operaciones.getText().toString();
-                operaciones.setText(op + ".");
+
                 if(aux.equals("")){
+                    operaciones.setText(op + "0.");
                     aux = aux.concat("0.");
                     firstNum=true;
+                }else {
+                    operaciones.setText(op + ".");
+                    aux = aux.concat(".");
+
+
                 }
-                aux = aux.concat(".");
-                System.out.println(aux);
-                firstNum=false;
 
-
-                break;*/
+                break;
             case R.id.button0:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "0");
@@ -135,10 +137,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "1");
                 aux = aux.concat("1");
+                System.out.println(aux);
                 if (firstNum) {
                     num1 = Float.parseFloat(aux);
                 } else {
+
                     num2 = Float.parseFloat(aux);
+                    System.out.println("num2= " + num2);
                     igual();
                 }
 
@@ -240,64 +245,67 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.buttonDiv:
-                if (firstNum) {
-                    selectOp=1;
-                    firstNum = false;
+                selectOp=1;
                     op = operaciones.getText().toString();
                     operaciones.setText(op + "/");
                     aux = "";
-                } else {
-                    num1=num1/num2;
-                    resultParcial.setText(num1.toString());
+                if (!firstNum) {
+                    num1=numAux;
+                    numAux=0f;
+                }else{
+
+                    firstNum = false;
                 }
 
 
 
                 break;
             case R.id.buttonMult:
-
-                if (firstNum) {
-                    selectOp=2;
-                    firstNum = false;
+                selectOp=2;
                     op = operaciones.getText().toString();
                     operaciones.setText(op + "x");
                     aux = "";
-                } else {
-                    num1=num1*num2;
-                    resultParcial.setText(num1.toString());
+                if (!firstNum) {
+                    num1=numAux;
+                    numAux=0f;
+                }else{
+
+                    firstNum = false;
                 }
 
                 break;
             case R.id.buttonRest:
-
-                if (firstNum) {
-                    selectOp=3;
-                    firstNum = false;
+                selectOp=3;
                     op = operaciones.getText().toString();
                     operaciones.setText(op + "-");
                     aux = "";
-                } else {
-                    num1=num1-num2;
-                    resultParcial.setText(num1.toString());
+                if (!firstNum) {
+                    num1=numAux;
+                    numAux=0f;
+                }else{
+
+                    firstNum = false;
                 }
 
                 break;
             case R.id.buttonSum:
+                selectOp=4;
+                op = operaciones.getText().toString();
+                operaciones.setText(op + "+");
+                aux = "";
+                if (!firstNum) {
+                    num1=numAux;
+                    numAux=0f;
+                }else{
 
-                if (firstNum) {
-                    selectOp=4;
                     firstNum = false;
-                    op = operaciones.getText().toString();
-                    operaciones.setText(op + "+");
-                    aux = "";
-                } else {
-                    num1=num1+num2;
-                    resultParcial.setText(num1.toString());
                 }
                 break;
 
             case R.id.buttonEq:
                 operaciones.setText(resultParcial.getText().toString());
+                num1=numAux;
+                numAux=0f;
                 aux = "";
                 resultParcial.setText("");
                 firstNum = true;
@@ -350,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 aux = "";
                 firstNum = true;
                 resultParcial.setText("");
-                num1 = num2 = 0f;
+                num1 = num2 =numAux = 0f;
 
                 break;
         }

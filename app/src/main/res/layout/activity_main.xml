@@ -89,21 +89,24 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/siete" />
+                android:text="@string/siete"
+                app:backgroundTint="@color/purple_200" />
 
             <Button
                 android:id="@+id/button8"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ocho" />
+                android:text="@string/ocho"
+                app:backgroundTint="@color/purple_200" />
 
             <Button
                 android:id="@+id/button9"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/nueve" />
+                android:text="@string/nueve"
+                app:backgroundTint="@color/purple_200" />
         </TableRow>
 
         <TableRow
@@ -115,21 +118,24 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cuatro" />
+                android:text="@string/cuatro"
+                app:backgroundTint="@color/purple_200" />
 
             <Button
                 android:id="@+id/button5"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cinco" />
+                android:text="@string/cinco"
+                app:backgroundTint="@color/purple_200" />
 
             <Button
                 android:id="@+id/button6"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/seis" />
+                android:text="@string/seis"
+                app:backgroundTint="@color/purple_200" />
         </TableRow>
 
         <TableRow
@@ -148,14 +154,16 @@
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dos" />
+                android:text="@string/dos"
+                app:backgroundTint="@color/purple_200" />
 
             <Button
                 android:id="@+id/button3"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/tres" />
+                android:text="@string/tres"
+                app:backgroundTint="@color/purple_200" />
         </TableRow>
 
         <TableRow
