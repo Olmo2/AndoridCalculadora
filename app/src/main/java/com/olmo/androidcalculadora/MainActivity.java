@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonEq, buttonDot, buttonRest, buttonSum, buttonDiv, buttonMult, buttonClear;
     String result, op, aux;
     int selectOp;
-    Float num1, num2 = 0f;
+    Float num1, num2, numAux = 0f;
     Boolean firstNum = true;
     TextView operaciones, resultParcial;
 
@@ -105,6 +105,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+           /* case R.id.buttonDot:
+                op = operaciones.getText().toString();
+                operaciones.setText(op + ".");
+                if(aux.equals("")){
+                    aux = aux.concat("0.");
+                    firstNum=true;
+                }
+                aux = aux.concat(".");
+                System.out.println(aux);
+                firstNum=false;
+
+
+                break;*/
             case R.id.button0:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "0");
@@ -282,6 +295,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     resultParcial.setText(num1.toString());
                 }
                 break;
+
             case R.id.buttonEq:
                 operaciones.setText(resultParcial.getText().toString());
                 aux = "";

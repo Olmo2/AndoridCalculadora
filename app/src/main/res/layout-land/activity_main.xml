@@ -6,77 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/operaciones"
-        android:layout_width="320dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="50dp"
-        android:gravity="right"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/resultParcial"
         android:layout_width="320dp"
         android:layout_height="35dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="204dp"
         android:gravity="right"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/operaciones" />
 
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/operaciones"
+        android:layout_width="320dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="204dp"
+        android:gravity="right"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultParcial">
-
-        <Button
-            android:id="@+id/buttonClear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/borrar" />
-
-        <Button
-            android:id="@+id/buttonDiv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/division" />
-
-        <Button
-            android:id="@+id/buttonMult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/multiplicacion" />
-
-        <Button
-            android:id="@+id/buttonRest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/resta" />
-
-        <Button
-            android:id="@+id/buttonSum"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/suma" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/resultParcial">
 
@@ -184,5 +142,45 @@
                 android:text="@string/igual" />
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="176dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultParcial">
+
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/borrar" />
+
+        <Button
+            android:id="@+id/buttonDiv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/division" />
+
+        <Button
+            android:id="@+id/buttonMult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/multiplicacion" />
+
+        <Button
+            android:id="@+id/buttonRest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/resta" />
+
+        <Button
+            android:id="@+id/buttonSum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/suma" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
