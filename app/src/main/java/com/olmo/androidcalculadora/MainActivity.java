@@ -1,9 +1,11 @@
 package com.olmo.androidcalculadora;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,12 +13,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
             buttonEq, buttonDot, buttonRest, buttonSum, buttonDiv, buttonMult, buttonClear, buttonPlusMin, buttonClearParc;
-    String result, op, aux;
+    String op, aux;
     int n1, n2, n3, n4,coef1,coef2;
     int selectOp;
     Float num1, num2, numAux = 0f;
-    Boolean firstNum = true;
+    Boolean firstNum,firstDot = true;
     TextView operaciones, resultParcial;
+
+    Context context;
+    CharSequence text;
+    int duration;
+    Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,8 +137,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonDot:
+                firstDot=false;
                 op = operaciones.getText().toString();
-
+               if(op.charAt(op.length()-1)=='.'){
+                   text = "No puedes poner 2 puntos decimales ";
+                   toast = Toast.makeText(context, text, duration);
+                   toast.show();
+               }
                 if (aux.equals("")) {
                     operaciones.setText(op + "0.");
                     aux = aux.concat("0.");
