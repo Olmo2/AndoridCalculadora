@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomStyle">
+
+        <item name="android:typeface">monospace</item>
+
+        <item name="android:textColor">#00FF00</item>/>
+
+        <item name="android:colorPrimary">#2C302E</item>/>
+
+
+    </style>
+</resources>

@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9, buttonEq, buttonDot, buttonRest, buttonSum, buttonDiv, buttonMult, buttonClear;
+    Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
+            buttonEq, buttonDot, buttonRest, buttonSum, buttonDiv, buttonMult, buttonClear, buttonPlusMin, buttonClearParc;
     String result, op, aux;
+    int n1, n2, n3, n4;
     int selectOp;
     Float num1, num2, numAux = 0f;
     Boolean firstNum = true;
@@ -73,11 +75,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonClear = (Button) findViewById(R.id.buttonClear);
         buttonClear.setOnClickListener(this);
 
+        buttonPlusMin = (Button) findViewById(R.id.buttonPlusMin);
+        buttonPlusMin.setOnClickListener(this);
+
+        buttonClearParc = (Button) findViewById(R.id.buttonClearParc);
+        buttonClearParc.setOnClickListener(this);
+
         operaciones = (TextView) findViewById(R.id.operaciones);
         resultParcial = (TextView) findViewById(R.id.resultParcial);
     }
+
     public void igual() {
-        firstNum=false;
+        firstNum = false;
         switch (selectOp) {
             /*Division*/
             case 1:
@@ -102,17 +111,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.buttonDot:
                 op = operaciones.getText().toString();
 
-                if(aux.equals("")){
+                if (aux.equals("")) {
                     operaciones.setText(op + "0.");
                     aux = aux.concat("0.");
-                    firstNum=true;
-                }else {
+                    firstNum = true;
+                } else {
                     operaciones.setText(op + ".");
                     aux = aux.concat(".");
 
@@ -245,58 +255,58 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.buttonDiv:
-                selectOp=1;
-                    op = operaciones.getText().toString();
-                    operaciones.setText(op + "/");
-                    aux = "";
+                selectOp = 1;
+                op = operaciones.getText().toString();
+                operaciones.setText(op + "/");
+                aux = "";
                 if (!firstNum) {
-                    num1=numAux;
-                    numAux=0f;
-                }else{
+                    num1 = numAux;
+                    numAux = 0f;
+                } else {
 
                     firstNum = false;
                 }
 
 
-
                 break;
             case R.id.buttonMult:
-                selectOp=2;
-                    op = operaciones.getText().toString();
-                    operaciones.setText(op + "x");
-                    aux = "";
+                selectOp = 2;
+                op = operaciones.getText().toString();
+                operaciones.setText(op + "x");
+                aux = "";
                 if (!firstNum) {
-                    num1=numAux;
-                    numAux=0f;
-                }else{
+                    num1 = numAux;
+                    numAux = 0f;
+                } else {
 
                     firstNum = false;
                 }
 
                 break;
             case R.id.buttonRest:
-                selectOp=3;
-                    op = operaciones.getText().toString();
-                    operaciones.setText(op + "-");
-                    aux = "";
+                selectOp = 3;
+                op = operaciones.getText().toString();
+                operaciones.setText(op + "-");
+                aux = "";
                 if (!firstNum) {
-                    num1=numAux;
-                    numAux=0f;
-                }else{
+                    num1 = numAux;
+                    numAux = 0f;
+                } else {
 
                     firstNum = false;
                 }
 
                 break;
             case R.id.buttonSum:
-                selectOp=4;
+                selectOp = 4;
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "+");
                 aux = "";
                 if (!firstNum) {
-                    num1=numAux;
-                    numAux=0f;
-                }else{
+                    
+                    num1 = numAux;
+                    numAux = 0f;
+                } else {
 
                     firstNum = false;
                 }
@@ -304,8 +314,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonEq:
                 operaciones.setText(resultParcial.getText().toString());
-                num1=numAux;
-                numAux=0f;
+                num1 = numAux;
+                numAux = 0f;
                 aux = "";
                 resultParcial.setText("");
                 firstNum = true;
@@ -358,7 +368,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 aux = "";
                 firstNum = true;
                 resultParcial.setText("");
-                num1 = num2 =numAux = 0f;
+                num1 = num2 = numAux = 0f;
+
+                break;
+            case R.id.buttonClearParc:
+
+
+                break;
+            case R.id.buttonPlusMin:
+                if (firstNum) {
+                    num1 = -num1;
+                    operaciones.setText(num1.toString());
+                } else {
+
+                    op = operaciones.getText().toString();
+                    n1 = op.lastIndexOf("/") + 1;
+                    n2 = op.lastIndexOf("*") + 1;
+                    n3 = op.lastIndexOf("-") + 1;
+                    n4 = op.lastIndexOf("+") + 1;
+                    compare(n1,n2,n3,n4);
+                    aux= op.substring(0,compare(n1,n2,n3,n4));
+
+                    if(evNum2()){
+                        aux=aux.substring(0,aux.length()-1);
+                    }
+                    num2 = -num2;
+                    operaciones.setText(aux + num2.toString());
+
+                    igual();
+
+                }
 
                 break;
         }
@@ -366,6 +405,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public int compare(int n1, int n2, int n3, int n4) {
+        Integer num = n1;
+        if (num.compareTo(n2) == 1 && num.compareTo(n3) == 1 && num.compareTo(n4) == 1) {
+            return n1;
+        }
+        num = n2;
+        if (num.compareTo(n1) == 1 && num.compareTo(n3) == 1 && num.compareTo(n4) == 1) {
+            return n2;
+        }
+        num = n3;
+        if (num.compareTo(n1) == 1 && num.compareTo(n2) == 1 && num.compareTo(n4) == 1) {
+            return n3;
+        }
+        num = n4;
+        if (num.compareTo(n1) == 1 && num.compareTo(n2) == 1 && num.compareTo(n3) == 1) {
+            return n4;
+        }
 
+        return n1;
+
+    }
+
+    public Boolean evNum2(){
+        if(num2<0){
+            return true;
+        }else
+            return false;
+    }
 
 }
