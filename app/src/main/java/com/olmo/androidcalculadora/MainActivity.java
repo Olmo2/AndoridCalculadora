@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
             buttonEq, buttonDot, buttonRest, buttonSum, buttonDiv, buttonMult, buttonClear, buttonPlusMin, buttonClearParc;
     String result, op, aux;
-    int n1, n2, n3, n4;
+    int n1, n2, n3, n4,coef1,coef2;
     int selectOp;
     Float num1, num2, numAux = 0f;
     Boolean firstNum = true;
@@ -21,8 +21,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        aux = " ";
         setContentView(R.layout.activity_main);
+
+        aux = " ";
+        num1= 0f;
+        num2 = 0f;
+        numAux = 0f;
+        coef1=1;
+        coef2=1;
 
         button0 = (Button) findViewById(R.id.button0);
         button0.setOnClickListener(this);
@@ -86,7 +92,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void igual() {
+
         firstNum = false;
+        num1=num1*coef1;
+        num2=num2*coef2;
+
+        System.out.println("num1: " + num1 + " num2: "+ num2 + " coef1: " +coef1 +" coef2: " + coef2 );
         switch (selectOp) {
             /*Division*/
             case 1:
@@ -110,6 +121,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
+
+        coef1=1;
+        coef2=1;
     }
 
     @Override
@@ -284,22 +298,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.buttonRest:
-                selectOp = 3;
+                System.out.println(evStr());
+                if(evStr()){
+                    selectOp = 3;
+                    if (!firstNum) {
+                        num1 = numAux;
+                        numAux = 0f;
+                    } else {
+
+                        firstNum = false;
+                    }
+                }else{
+
+                    if (!firstNum) {
+                        coef2=-coef2;
+                    } else {
+                        coef1=-coef1;
+
+                    }
+
+                }
+
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "-");
                 aux = "";
 
-                if (!firstNum) {
-                    if(!evStr()){
-                        num1=-num1 ;
-                        selectOp = 0;
-                    }
-                    num1 = numAux;
-                    numAux = 0f;
-                } else {
-
-                    firstNum = false;
-                }
 
                 break;
             case R.id.buttonSum:
@@ -320,53 +343,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.buttonEq:
                 operaciones.setText(resultParcial.getText().toString());
+
                 num1 = numAux;
+                System.out.println(num1);
                 numAux = 0f;
                 aux = "";
                 resultParcial.setText("");
                 firstNum = true;
                 op = "";
+                coef1=coef2=1;
                 break;
-                /* switch (selectOp) {
 
-                    case 1:
-                        num1 = num1 / num2;
-                        operaciones.setText(num1.toString());
-                        aux = "";
-                        resultParcial.setText("");
-                        firstNum = true;
-                        op = "";
-                        break;
-                    case 2:
-                        num1 = num1 * num2;
-                        operaciones.setText(num1.toString());
-                        aux = "";
-                        resultParcial.setText("");
-                        firstNum = true;
-                        op = "";
-                        break;
-                    case 3:
-                        num1 = num1 - num2;
-                        operaciones.setText(num1.toString());
-                        aux = "";
-                        resultParcial.setText("");
-                        firstNum = true;
-                        op = "";
-                        break;
-                    case 4:
-                        num1 = num1 + num2;
-                        operaciones.setText(num1.toString());
-                        aux = "";
-                        resultParcial.setText("");
-                        firstNum = true;
-                        op = "";
-                        break;
-
-                }
-
-
-                break;
-*/
             case R.id.buttonClear:
                 selectOp = 0;
                 op = "";
@@ -375,6 +362,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 firstNum = true;
                 resultParcial.setText("");
                 num1 = num2 = numAux = 0f;
+                coef1=coef2=1;
 
                 break;
             case R.id.buttonClearParc:
@@ -400,6 +388,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     num2 = -num2;
                     operaciones.setText(aux + num2.toString());
+
 
                     igual();
 
@@ -448,11 +437,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public Boolean evStr(){
-        aux = operaciones.getText().toString();
-        if(Character.isDigit(aux.charAt(aux.length()-1))){
-            return true;
-        }else
-            return false;
+       String temp = operaciones.getText().toString();
+
+       if(temp.length()==0){
+           return false;
+       }else {
+           System.out.println(temp.charAt(temp.length()-1));
+           if (Character.isDigit(temp.charAt(temp.length() - 1))) {
+               return true;
+           } else
+               return false;
+       }
     }
 
 }
