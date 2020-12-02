@@ -288,7 +288,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "-");
                 aux = "";
+
                 if (!firstNum) {
+                    if(!evStr()){
+                        num1=-num1 ;
+                        selectOp = 0;
+                    }
                     num1 = numAux;
                     numAux = 0f;
                 } else {
@@ -302,8 +307,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "+");
                 aux = "";
+
                 if (!firstNum) {
-                    
+
                     num1 = numAux;
                     numAux = 0f;
                 } else {
@@ -429,6 +435,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public Boolean evNum2(){
         if(num2<0){
+            return true;
+        }else
+            return false;
+    }
+
+    public Boolean evNum1(){
+        if(num1<0){
+            return true;
+        }else
+            return false;
+    }
+
+    public Boolean evStr(){
+        aux = operaciones.getText().toString();
+        if(Character.isDigit(aux.charAt(aux.length()-1))){
             return true;
         }else
             return false;
