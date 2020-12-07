@@ -9,6 +9,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Main Activity de la calculadora
+ *
+ * @author Olmo Tamargo Suárez
+ * @version 1.0
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
@@ -31,7 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*Inicialización de variables*/
+        /**
+         * Inicialización de variables
+         */
         aux = " ";
         num1 = num2 = numAux = 0f;
         numAux = 0f;
@@ -41,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         duration = Toast.LENGTH_SHORT;
 
 
-        /*Botones y asignacion de listeners*/
+        /**
+         * Botones y asignacion de listeners
+         */
         button0 = (Button) findViewById(R.id.button0);
         button0.setOnClickListener(this);
 
@@ -100,12 +110,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonClearParc.setOnClickListener(this);
 
 
-        /*TextViews*/
+        /**TextViews*/
         operaciones = (TextView) findViewById(R.id.operaciones);
         resultParcial = (TextView) findViewById(R.id.resultParcial);
     }
 
-    /*Método que realiza las operaciones*/
+    /**
+     * Método que realiza las operaciones
+     */
     public void igual() {
 
         firstNum = false;
@@ -114,22 +126,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         System.out.println("num1: " + num1 + " num2: " + num2 + " coef1: " + coef1 + " coef2: " + coef2);
         switch (selectOp) {
-            /*Division*/
+            /**Division*/
             case 1:
                 numAux = num1 / num2;
                 resultParcial.setText(numAux.toString());
                 break;
-            /*Multiplicacion*/
+            /**Multiplicacion*/
             case 2:
                 numAux = num1 * num2;
                 resultParcial.setText(numAux.toString());
                 break;
-            /*Resta*/
+            /**Resta*/
             case 3:
                 numAux = num1 - num2;
                 resultParcial.setText(numAux.toString());
                 break;
-            /*Suma*/
+            /**Suma*/
             case 4:
                 numAux = num1 + num2;
                 resultParcial.setText(numAux.toString());
@@ -139,12 +151,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            /*BOTÓN CERO*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN CERO
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button0:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "0");
@@ -158,9 +171,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN UNO*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN UNO
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button1:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "1");
@@ -176,9 +189,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN DOS*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN DOS
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button2:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "2");
@@ -191,9 +204,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN TRES*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN TRES
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button3:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "3");
@@ -206,9 +219,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN CUATRO*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN CUATRO
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button4:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "4");
@@ -221,9 +234,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN CINCO*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN CINCO
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button5:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "5");
@@ -236,9 +249,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN SEIS*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN SEIS
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button6:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "6");
@@ -251,9 +264,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN SIETE*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN SIETE
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button7:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "7");
@@ -266,9 +279,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN OCHO*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /**BOTÓN OCHO
+             *Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             *Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button8:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "8");
@@ -281,9 +294,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-            /*BOTÓN NUEVE*/
-            /*Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número*/
-            /*Concatena en la variable "aux" para construir número de más de una cifra*/
+            /** BOTÓN NUEVE
+             * Evalua la varible "firstNum" la cual define si escribimos el primer o el segundo número
+             * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button9:
                 op = operaciones.getText().toString();
                 operaciones.setText(op + "9");
@@ -297,27 +310,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
-            /*BOTÓN PUNTO*/
+            /** BOTÓN PUNTO*/
             case R.id.buttonDot:
-                /*"op" tiene el valor de lo que está actualmente escrito en la calculadora*/
+                /**"op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
-                /*Si no hay nada escrito, pone un 0 delante del punto */
+                /**Si no hay nada escrito, pone un 0 delante del punto */
                 if (op.length() == 0) {
                     operaciones.setText(op + "0.");
                     aux = aux.concat("0.");
                     firstNum = true;
                     firstDot = false;
-                    /*Si el último carácter es un símbolo añade un 0 delante del punto*/
+                    /**Si el último carácter es un símbolo añade un 0 delante del punto*/
                 } else if (op.charAt(op.length() - 1) == '+' || op.charAt(op.length() - 1) == '-' || op.charAt(op.length() - 1) == '/' || op.charAt(op.length() - 1) == '*') {
                     operaciones.setText(op + "0.");
                     aux = aux.concat("0.");
                     firstDot = false;
-                    /*Si el anterior caracter es un punto advierte al usuario de que no puede poner dos puntos */
+                    /**Si el anterior caracter es un punto advierte al usuario de que no puede poner dos puntos */
                 } else if (op.charAt(op.length() - 1) == '.' || !firstDot) {
                     text = "No puedes poner 2 puntos decimales ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si pasa los filtros anteriores se pone el punto decimal*/
+                    /**Si pasa los filtros anteriores se pone el punto decimal*/
                 } else {
                     operaciones.setText(op + ".");
                     aux = aux.concat(".");
@@ -326,41 +339,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
 
                 break;
-                /*BOTÓN DIVISIÓN*/
+            /** BOTÓN DIVISIÓN*/
             case R.id.buttonDiv:
-                /*"op" tiene el valor de lo que está actualmente escrito en la calculadora*/
+                /** "op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
-                /*Si no hay nada escrito, pone un 0 delante del símbolo de división*/
+
                 if (op.length() == 0) {
+                    /** Si no hay nada escrito, pone un 0 delante del símbolo de división*/
                     selectOp = 1;
                     operaciones.setText(op + "0/");
                     num1 = 0f;
                     firstNum = false;
-                    /*Si el anterior caracter es '/' advierte al usuario de que no puede poner dos '/' seguidos */
                 } else if (op.charAt(op.length() - 1) == '/') {
+                    /** Si el anterior caracter es '/' advierte al usuario de que no puede poner dos '/' seguidos */
                     text = "No puedes poner 2 divisiones seguidas ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si el anterior caracter es 'x' advierte al usuario de que no puede poner '/' tras 'x' sin numeros por el medio */
                 } else if (op.charAt(op.length() - 1) == 'x') {
+                    /**Si el anterior caracter es 'x' advierte al usuario de que no puede poner '/' tras 'x' sin numeros por el medio */
                     text = "No puedes poner una división tras una multiplicación ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si el anterior caracter es '.' advierte al usuario de que no puede poner '/' tras '.' sin numeros por el medio */
                 } else if (op.charAt(op.length() - 1) == '.') {
+                    /**Si el anterior caracter es '.' advierte al usuario de que no puede poner '/' tras '.' sin numeros por el medio */
                     text = "No puedes poner una división tras un punto ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si es el primer número:
+                } else if (op.charAt(op.length() - 1) == '+') {
+                    /** Si el anterior caracter es '+' advierte al usuario de que no puede poner '/' tras '+' sin numeros por el medio */
+                    text = "No puedes poner una división tras una suma";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (op.charAt(op.length() - 1) == '-') {
+                    /** Si el anterior caracter es '-' advierte al usuario de que no puede poner '/' tras '-' sin numeros por el medio */
+                    text = "No puedes poner una división tras una resta";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (firstNum) {
+                    /**Si es el primer número:
                      *Cambia el valor de 'selectOp' a 1
                      *Cambia la varible 'firstNum' a false indicando que el siguiente número es el divisor
                      *Cambia la variable 'firstDot' a true   indicando que el siguiente número puede contener un punto decimal*/
-                } else if (firstNum) {
                     firstDot = true;
                     selectOp = 1;
                     operaciones.setText(op + "/");
                     firstNum = false;
-                    /*Si es el segundo número:
+                    /**Si es el segundo número:
                      *Cambia el valor de 'selectOp' a 1
                      *Asigna el valor de 'numAux' a 'num1' y a 'numAux' le asigna 0
                      *Cambia la variable 'firstDot' a true   indicando que el siguiente número puede contener un punto decimal
@@ -375,41 +399,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 aux = "";
 
                 break;
-                /*BOTÓN MULTIPLICACIÓN*/
+            /** BOTÓN MULTIPLICACIÓN*/
             case R.id.buttonMult:
-               /*"op" tiene el valor de lo que está actualmente escrito en la calculadora*/
+                /** "op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
-                /*Si no hay nada escrito, pone un 0 delante del símbolo de multiplicación*/
+                /** Si no hay nada escrito, pone un 0 delante del símbolo de multiplicación*/
                 if (op.length() == 0) {
                     selectOp = 2;
                     operaciones.setText(op + "0x");
                     num1 = 0f;
                     firstNum = false;
-                    /*Si el anterior caracter es 'x' advierte al usuario de que no puede poner dos 'x' seguidos */
                 } else if (op.charAt(op.length() - 1) == 'x') {
+                    /** Si el anterior caracter es 'x' advierte al usuario de que no puede poner dos 'x' seguidos */
                     text = "No puedes poner 2 multiplicaciones seguidas ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si el anterior caracter es '/' advierte al usuario de que no puede poner 'x' tras '/' sin numeros por el medio */
                 } else if (op.charAt(op.length() - 1) == '/') {
-                    text = "No puedes poner una multiplicación tras una multiplicación ";
+                    /** Si el anterior caracter es '/' advierte al usuario de que no puede poner 'x' tras '/' sin numeros por el medio */
+                    text = "No puedes poner una multiplicación tras una división ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si el anterior caracter es '.' advierte al usuario de que no puede poner 'x' tras '.' sin numeros por el medio */
                 } else if (op.charAt(op.length() - 1) == '.') {
+                    /** Si el anterior caracter es '.' advierte al usuario de que no puede poner 'x' tras '.' sin numeros por el medio */
                     text = "No puedes poner una multiplicación tras un punto ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    /*Si es el primer número:
+                } else if (op.charAt(op.length() - 1) == '+') {
+                    /** Si el anterior caracter es '+' advierte al usuario de que no puede poner 'x' tras '+' sin numeros por el medio */
+                    text = "No puedes poner una multiplicación tras una suma";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (op.charAt(op.length() - 1) == '-') {
+                    /** Si el anterior caracter es '-' advierte al usuario de que no puede poner 'x' tras '-' sin numeros por el medio */
+                    text = "No puedes poner una multiplicación tras una resta";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (firstNum) {
+                    /** Si es el primer número:
                      *Cambia el valor de 'selectOp' a 2
                      *Cambia la varible 'firstNum' a false indicando que el siguiente input es parte del segundo número
                      *Cambia la variable 'firstDot' a true   indicando que el siguiente número puede contener un punto decimal*/
-                } else if (firstNum) {
                     firstDot = true;
                     selectOp = 2;
                     operaciones.setText(op + "x");
                     firstNum = false;
-                    /*Si es el segundo número:
+                    /** Si es el segundo número:
                      *Cambia el valor de 'selectOp' a 2
                      *Asigna el valor de 'numAux' a 'num1' y a 'numAux' le asigna 0
                      *Cambia la variable 'firstDot' a true   indicando que el siguiente número puede contener un punto decimal
@@ -424,9 +458,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 aux = "";
 
                 break;
+
+            /** BOTÓN RESTA*/
             case R.id.buttonRest:
                 op = operaciones.getText().toString();
-                /*llama al método evStr() que evalua el string
+                /**llama al método evStr() que evalua el string
                  * y decide si es o no un '-' operación o un '-' signo */
                 if (op.length() == 0) {
                     selectOp = 3;
@@ -435,6 +471,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     firstNum = false;
                 } else if (op.charAt(op.length() - 1) == '.') {
                     text = "No puedes poner una resta tras un punto ";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (op.charAt(op.length() - 1) == '/') {
+                    /** Si el anterior caracter es '/' advierte al usuario de que no puede poner '-' tras '/' sin numeros por el medio */
+                    text = "No puedes poner una resta tras una división";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (op.charAt(op.length() - 1) == 'x') {
+                    /**Si el anterior caracter es 'x' advierte al usuario de que no puede poner '-' tras 'x' sin numeros por el medio */
+                    text = "No puedes poner una resta tras una multiplicación ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
                 } else if (evStr()) {
@@ -448,6 +494,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         firstNum = false;
                     }
                 } else {
+                    operaciones.setText(op + "-");
                     firstDot = true;
                     if (firstNum) {
                         coef1 = -coef1;
@@ -461,9 +508,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 break;
+            /** BOTÓN SUMA*/
             case R.id.buttonSum:
                 op = operaciones.getText().toString();
-                /*llama al método evStr() que evalua el string
+                /**llama al método evStr() que evalua el string
                  * y decide si es o no un '+' operación o un '+' signo */
                 if (op.length() == 0) {
                     selectOp = 4;
@@ -475,6 +523,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     text = "No puedes poner una suma tras un punto ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
+                } else if (op.charAt(op.length() - 1) == '/') {
+                    /** Si el anterior caracter es '/' advierte al usuario de que no puede poner '+' tras '/' sin numeros por el medio */
+                    text = "No puedes poner una suma tras una división";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                } else if (op.charAt(op.length() - 1) == 'x') {
+                    /**Si el anterior caracter es 'x' advierte al usuario de que no puede poner '+' tras 'x' sin numeros por el medio */
+                    text = "No puedes poner una suma tras una multiplicación ";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 } else if (evStr()) {
                     selectOp = 4;
                     operaciones.setText(op + "+");
@@ -482,17 +540,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (firstNum) {
                         firstNum = false;
                     } else {
+
                         num1 = numAux;
                         numAux = 0f;
                     }
+                } else {
+                    operaciones.setText(op + "+");
                 }
                 aux = "";
 
                 break;
-
+            /** BOTÓN IGUAL */
             case R.id.buttonEq:
-                /*Si  el resultado parcial no existe,
-                 * es que no hay ninguna operación por lo que no hace nada*/
+                /** Si  el resultado parcial no existe,
+                 * es que no hay ninguna operación por lo que funciona
+                 * como el botón de borrar,
+                 * si hay algún resultado lo traslada al cuadro de texto pricipal.
+                 * Iguala el "num1" al "numAux"
+                 * Iguala la cadena "aux" a "num1"
+                 * Iguala las demás variables a su valor inicial */
                 if (resultParcial.length() == 0) {
                     selectOp = 0;
                     op = "";
@@ -516,7 +582,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 op = "";
                 coef1 = coef2 = 1;
                 break;
-
+            /** BOTÓN BORRAR_TODO
+             * Iguala todas las variable utilizadas a lo largo del programa a sus valores iniciales*/
             case R.id.buttonClear:
                 selectOp = 0;
                 op = "";
@@ -529,30 +596,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 firstDot = true;
 
                 break;
+            /** BOTÓN BORRAR PARCIAL*/
             case R.id.buttonClearParc:
 
+
                 break;
+            /** BOTÓN CAMBIO DE SIGNO
+             * Si es el primer número cambia el signo del número y lo reescribe
+             * Si no es el primero, evalua el último índice de cada uno de los signos para encontrar
+             * el último y saber qué número tiene que cambiar de signo en la cadena "op" */
             case R.id.buttonPlusMin:
-                if (firstNum) {
-                    num1 = -num1;
-                    operaciones.setText(num1.toString());
-                } else {
-                    op = operaciones.getText().toString();
-                    n1 = op.lastIndexOf("/") + 1;
-                    n2 = op.lastIndexOf("*") + 1;
-                    n3 = op.lastIndexOf("-") + 1;
-                    n4 = op.lastIndexOf("+") + 1;
-                    compare(n1, n2, n3, n4);
-                    aux = op.substring(0, compare(n1, n2, n3, n4));
+                /** Si el último dígito no es un número advierte mediante toast de que esa acción no se puede realizar*/
+                if (Character.isDigit(operaciones.getText().toString().charAt(operaciones.getText().toString().length() - 1))) {
 
-                    if (evNum2()) {
-                        aux = aux.substring(0, aux.length() - 1);
+                    if (firstNum) {
+                        num1 = -num1;
+                        operaciones.setText(num1.toString());
+                    } else {
+                        op = operaciones.getText().toString();
+                        n1 = op.lastIndexOf("/") + 1;
+                        n2 = op.lastIndexOf("x") + 1;
+                        n3 = op.lastIndexOf("-") + 1;
+                        n4 = op.lastIndexOf("+") + 1;
+                        compare(n1, n2, n3, n4);
+                        aux = op.substring(0, compare(n1, n2, n3, n4));
+                        /** Evalua el segundo número "num2"
+                         * Si "num2" es menor que 0 entonces elimina un signo de la cadena "aux"
+                         * antes de invertir el signo  */
+                        if (evNum2()) {
+                            System.out.println(aux);
+                            aux = aux.substring(0, aux.length() - 1);
+                            System.out.println(aux);
+                        }
+                        num2 = -num2;
+                        operaciones.setText(aux + num2.toString());
+                        aux = num2.toString();
+                        igual();
+
                     }
-                    num2 = -num2;
-                    operaciones.setText(aux + num2.toString());
 
-                    igual();
-
+                } else {
+                    text = "No puedes cambiar el signo a una operación ";
+                    toast = Toast.makeText(context, text, duration);
+                    toast.show();
                 }
 
                 break;
@@ -560,7 +646,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
 
 
     public int compare(int n1, int n2, int n3, int n4) {

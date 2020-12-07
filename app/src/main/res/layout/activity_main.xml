@@ -11,32 +11,36 @@
         android:id="@+id/operaciones"
         android:layout_width="320dp"
         android:layout_height="45dp"
-        android:layout_marginTop="46dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="30dp"
         android:gravity="right"
-        android:textSize="36sp"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/resultParcial"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <TextView
         android:id="@+id/resultParcial"
         android:layout_width="320dp"
         android:layout_height="35dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="40dp"
         android:gravity="right"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/operaciones" />
-
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="480dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tableLayout">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultParcial">
 
         <Button
             android:id="@+id/buttonClearParc"
@@ -100,6 +104,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
@@ -108,20 +113,23 @@
 
             <Button
                 android:id="@+id/button7"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/siete" />
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/ocho" />
 
             <Button
                 android:id="@+id/button9"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/nueve" />
         </TableRow>
 
@@ -131,20 +139,23 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/cuatro" />
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/cinco" />
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/seis" />
         </TableRow>
 
@@ -154,20 +165,23 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/uno" />
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/dos" />
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/tres" />
         </TableRow>
 
@@ -177,20 +191,23 @@
 
             <Button
                 android:id="@+id/buttonDot"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/punto" />
 
             <Button
                 android:id="@+id/button0"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/cero" />
 
             <Button
                 android:id="@+id/buttonEq"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:layout_weight="1"
                 android:text="@string/igual" />
         </TableRow>
     </TableLayout>
