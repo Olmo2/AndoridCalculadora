@@ -121,8 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void igual() {
 
         firstNum = false;
-        num1 = num1 * coef1;
-        num2 = num2 * coef2;
+       // num1 = num1 * coef1;
+        //num2 = num2 * coef2;
 
         System.out.println("num1: " + num1 + " num2: " + num2 + " coef1: " + coef1 + " coef2: " + coef2);
         switch (selectOp) {
@@ -160,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button0:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "0");
                 aux = aux.concat("0");
                 System.out.println(aux);
@@ -176,6 +179,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button1:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "1");
                 aux = aux.concat("1");
                 System.out.println(aux);
@@ -194,6 +200,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button2:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "2");
                 aux = aux.concat("2");
                 if (firstNum) {
@@ -209,6 +218,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button3:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "3");
                 aux = aux.concat("3");
                 if (firstNum) {
@@ -224,6 +236,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button4:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "4");
                 aux = aux.concat("4");
                 if (firstNum) {
@@ -239,6 +254,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button5:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "5");
                 aux = aux.concat("5");
                 if (firstNum) {
@@ -254,6 +272,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button6:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "6");
                 aux = aux.concat("6");
                 if (firstNum) {
@@ -269,6 +290,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button7:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "7");
                 aux = aux.concat("7");
                 if (firstNum) {
@@ -284,6 +308,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              *Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button8:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "8");
                 aux = aux.concat("8");
                 if (firstNum) {
@@ -299,6 +326,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Concatena en la variable "aux" para construir número de más de una cifra*/
             case R.id.button9:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 operaciones.setText(op + "9");
                 aux = aux.concat("9");
                 if (firstNum) {
@@ -314,6 +344,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonDot:
                 /**"op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 /**Si no hay nada escrito, pone un 0 delante del punto */
                 if (op.length() == 0) {
                     operaciones.setText(op + "0.");
@@ -343,6 +376,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonDiv:
                 /** "op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
 
                 if (op.length() == 0) {
                     /** Si no hay nada escrito, pone un 0 delante del símbolo de división*/
@@ -403,6 +439,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.buttonMult:
                 /** "op" tiene el valor de lo que está actualmente escrito en la calculadora*/
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1,op.length()-1);
+                }
                 /** Si no hay nada escrito, pone un 0 delante del símbolo de multiplicación*/
                 if (op.length() == 0) {
                     selectOp = 2;
@@ -462,6 +501,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /** BOTÓN RESTA*/
             case R.id.buttonRest:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 /**llama al método evStr() que evalua el string
                  * y decide si es o no un '-' operación o un '-' signo */
                 if (op.length() == 0) {
@@ -471,16 +513,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     firstNum = false;
                 } else if (op.charAt(op.length() - 1) == '.') {
                     text = "No puedes poner una resta tras un punto ";
-                    toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                } else if (op.charAt(op.length() - 1) == '/') {
-                    /** Si el anterior caracter es '/' advierte al usuario de que no puede poner '-' tras '/' sin numeros por el medio */
-                    text = "No puedes poner una resta tras una división";
-                    toast = Toast.makeText(context, text, duration);
-                    toast.show();
-                } else if (op.charAt(op.length() - 1) == 'x') {
-                    /**Si el anterior caracter es 'x' advierte al usuario de que no puede poner '-' tras 'x' sin numeros por el medio */
-                    text = "No puedes poner una resta tras una multiplicación ";
                     toast = Toast.makeText(context, text, duration);
                     toast.show();
                 } else if (evStr()) {
@@ -497,9 +529,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     operaciones.setText(op + "-");
                     firstDot = true;
                     if (firstNum) {
-                        coef1 = -coef1;
+                        num1 = num1*-1;
                     } else {
-                        coef2 = -coef2;
+                        num2 = num2*-1;
 
                     }
 
@@ -511,6 +543,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /** BOTÓN SUMA*/
             case R.id.buttonSum:
                 op = operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 /**llama al método evStr() que evalua el string
                  * y decide si es o no un '+' operación o un '+' signo */
                 if (op.length() == 0) {
@@ -606,12 +641,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              * Si no es el primero, evalua el último índice de cada uno de los signos para encontrar
              * el último y saber qué número tiene que cambiar de signo en la cadena "op" */
             case R.id.buttonPlusMin:
+                op=operaciones.getText().toString();
+                if(op.length()>13){
+                    op=op.substring(1);
+                }
                 /** Si el último dígito no es un número advierte mediante toast de que esa acción no se puede realizar*/
-                if (Character.isDigit(operaciones.getText().toString().charAt(operaciones.getText().toString().length() - 1))) {
+                if (Character.isDigit(op.charAt(op.length() - 1))) {
 
                     if (firstNum) {
-                        num1 = -num1;
+                        num1 = num1*-1;
                         operaciones.setText(num1.toString());
+                        aux = num1.toString();
                     } else {
                         op = operaciones.getText().toString();
                         n1 = op.lastIndexOf("/") + 1;
@@ -628,7 +668,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             aux = aux.substring(0, aux.length() - 1);
                             System.out.println(aux);
                         }
-                        num2 = -num2;
+                        num2 = num2 * -1;
+                        System.out.println(num2);
                         operaciones.setText(aux + num2.toString());
                         aux = num2.toString();
                         igual();
